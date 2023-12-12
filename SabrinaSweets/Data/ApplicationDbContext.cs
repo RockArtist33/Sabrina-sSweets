@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SabrinaSweets.Models;
 
 namespace SabrinaSweets.Data
 {
@@ -9,5 +10,7 @@ namespace SabrinaSweets.Data
             : base(options)
         {
         }
+        public DbSet<SabrinaSweets.Models.Setting>? Setting { get; set; }
+        public DbSet<SabrinaSweets.Models.UserSettings>? UserSettings { get; set; }
     }
 }
