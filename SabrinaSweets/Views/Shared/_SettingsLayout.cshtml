@@ -11,52 +11,66 @@
 
     <style>
         body {
-            background-color:slategrey;
+            background-color:red; /* background colour for the webpage */
         }
+
+        .flexbox {
+            display:flex;
+            flex-direction:column;
+        }
+
         .SettingList {
+            position: absolute;
+            left:0px;
+            top:0px;
             list-style-type: none;
             margin: 0;
             padding: 0;
-            width: 180px;
-            height: 670px;
-            background-color: #f1f1f1;
+            width: 400px; /* adjuts width and or length of the actual box */
+            height: 100vh; /* adjusts height and or how long the actual box is */
+            background-color: grey; /* background colour of the actual box */
         }
 
 
         .SettingItem a {
             display: block;
-            color: #000;
-            padding: 8px 16px;
+            width:400px;
+            padding-top:10px;
+            padding-bottom:10px;
+            text-align:center;
+            color: white; /* colour of the text */
             text-decoration: none;
-            font-family: OpenDyslexic3;
-            font-size: 24px;
+            border: 1px solid lightgrey;
+            font-family: OpenDyslexic3; /* text font */
+            font-size: 24px; /* text size */
+            font-weight: bold /* makes the text bold*/
         }
 
-        /* Change the link color on hover */
+        /* change the link color on hover */
         .SettingItem a:hover {
-            background-color: #555;
-            color: white;
+            background-color: #555; /* changes the box colour on hover */
+            color: darkred; /* changes the text colour on hover */
         }
     </style>
 </head>
 <body>
 
-
-    <ul class="SettingList">
-        <li class="SettingItem"><b><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></b></li>
-        <li class="SettingItem"><b><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></b></li>
-        <li class="SettingItem"><a href="#apperance">Appearance</a></li>
-        <li class="SettingItem"><a href="#accessibility">Accessibility</a></li>
-        <li class="SettingItem"><a href="#privacy&security">Privacy and Security</a></li>
-        <li class="SettingItem"><a href="#paymentmethods">Payment Methods</a></li>
-    </ul>
-
-
-
-
+    <div class="flexbox"> 
+        <ul class="SettingList">
+            <li class="SettingItem"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li> 
+            <li class="SettingItem"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+            <li class="SettingItem"><a href="#apperance">Appearance</a></li>
+            <li class="SettingItem"><a href="#accessibility">Accessibility</a></li>
+            <li class="SettingItem"><a href="#privacy&security">Privacy and Security</a></li>
+            <li class="SettingItem"><a href="#paymentmethods">Payment Methods</a></li>
+        </ul>
+        <div style="position:absolute;left:400px">
+            @RenderBody()
+        </div>
+        
+    </div>
 </body>
 </html>
 
 
 
-@RenderBody()
