@@ -8,6 +8,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="~/css/Settings.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css"
 
     <style>
         body {
@@ -16,7 +18,7 @@
 
         .flexbox {
             display:flex;
-            flex-direction:column;
+            flex-direction:row;
         }
 
         .SettingList {
@@ -64,7 +66,7 @@
             <li class="SettingItem"><a href="#privacy&security">Privacy and Security</a></li>
             <li class="SettingItem"><a href="#paymentmethods">Payment Methods</a></li>
         </ul>
-        <div style="position:absolute;left:400px">
+        <div style="position:static;left:400px">
             @RenderBody()
         </div>
         
