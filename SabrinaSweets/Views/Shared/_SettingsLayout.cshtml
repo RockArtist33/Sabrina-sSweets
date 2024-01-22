@@ -1,0 +1,78 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Settings.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css"
+
+    <style>
+        body {
+            background-color:red; /* background colour for the webpage */
+        }
+
+        .flexbox {
+            display:flex;
+            flex-direction:row;
+        }
+
+        .SettingList {
+            position: absolute;
+            left:0px;
+            top:0px;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 400px; /* adjuts width and or length of the actual box */
+            height: 100vh; /* adjusts height and or how long the actual box is */
+            background-color: grey; /* background colour of the actual box */
+        }
+
+
+        .SettingItem a {
+            display: block;
+            width:400px;
+            padding-top:10px;
+            padding-bottom:10px;
+            text-align:center;
+            color: white; /* colour of the text */
+            text-decoration: none;
+            border: 1px solid lightgrey;
+            font-family: OpenDyslexic3; /* text font */
+            font-size: 24px; /* text size */
+            font-weight: bold /* makes the text bold*/
+        }
+
+        /* change the link color on hover */
+        .SettingItem a:hover {
+            background-color: #555; /* changes the box colour on hover */
+            color: darkred; /* changes the text colour on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flexbox"> 
+        <ul class="SettingList">
+            <li class="SettingItem"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li> 
+            <li class="SettingItem"><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+            <li class="SettingItem"><a href="#apperance">Appearance</a></li>
+            <li class="SettingItem"><a href="#accessibility">Accessibility</a></li>
+            <li class="SettingItem"><a href="#privacy&security">Privacy and Security</a></li>
+            <li class="SettingItem"><a href="#paymentmethods">Payment Methods</a></li>
+        </ul>
+        <div style="position:static;left:400px">
+            @RenderBody()
+        </div>
+        
+    </div>
+</body>
+</html>
+
+
+
