@@ -1,5 +1,6 @@
 html {
   font-size: 14px;
+  --tetriary: rgb(210,210,210);
 }
 
 @media (min-width: 768px) {
@@ -15,4 +16,29 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.Navbar {
+    width: 100vw;
+    height: 60px;
+    border-bottom: 1px solid var(--tetriary);
+    box-shadow: 0 0.1rem 1rem rgba(0,0,0,0.15), inset 0 -1px 0 rgba(255,255,255,0.15);
+}
+
+.NavbarLogo {
+    width: 150px;
+    margin:0px 10px 0px 10px;
+}
+
+
+
+.SearchBar {
+    display:block;
+    margin-left:50%;
+}
+
+.SearchBar .NavbarSearch {
+    height:50px;
+    margin:auto;
+    border:
 }
