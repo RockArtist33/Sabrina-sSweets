@@ -222,7 +222,6 @@ namespace SabrinaSweets.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                    
                 });
 
             modelBuilder.Entity("SabrinaSweets.Models.Setting", b =>

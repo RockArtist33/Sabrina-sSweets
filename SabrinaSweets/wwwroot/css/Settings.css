@@ -1,4 +1,63 @@
-﻿.SettingsBody {
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+body {
+    background-color: red; /* background colour for the webpage */
+}
+
+.flexbox {
+    display: flex;
+    flex-direction: row;
+}
+
+.SettingList {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 20vw; /* adjuts width and or length of the actual box */
+    height: 100vh; /* adjusts height and or how long the actual box is */
+    background-color: white; /* background colour of the actual box */
+}
+
+
+.SettingTitle {
+    display: block;
+    width: inherit;
+    text-align: center;
+    padding-top:10px;
+    padding-bottom:10px;
+    margin: auto;
+    border:none;
+    border-bottom:1px solid rgb(227,227,227);
+}
+
+.SettingItem {
+    display: block;
+    width: inherit;
+    padding-left:20px;
+    text-align: left;
+    
+}
+
+.SettingLink {
+    color: black; /* colour of the text */
+    text-decoration: none;
+    font-family: 'Roboto' sans-serif; /* text font */
+    font-size: 16px; /* text size */
+    font-weight: bold; /* makes the text bold*/
+    border-radius: 365px;
+}
+
+    /* change the link color on hover */
+.SettingLink:hover {
+    color: black;
+    background-color: rgb(220,220,220);
+    
+}
+
+.SettingsBody {
     position:relative;
     top:0px;
     background-color:white;
