@@ -11,6 +11,8 @@ body {
     
 }
 
+
+
 .SettingList {
     position: absolute;
     left: 0px;
@@ -59,6 +61,19 @@ body {
     color: black;
     background-color: rgb(220,220,220);
     
+}
+
+.arrow {
+    width: 10px;
+    transform: rotate(180deg);
+}
+
+.rotated {
+    transform: rotate(0);
+}
+
+.hidden {
+    display:none
 }
 
 .SettingsBody {

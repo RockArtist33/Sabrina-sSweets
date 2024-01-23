@@ -10,6 +10,20 @@
 <head>
     <link rel="stylesheet" href="~/css/Settings.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <script>
+        function showhide(id) {
+            menu = document.getElementById(id);
+            arrow = document.getElementById(id).childNodes.item(1);
+            console.log(menu.childNodes)
+            
+            if (arrow.classList.contains("rotated")) {
+                arrow.classList.remove("rotated")
+            } else {
+                arrow.classList.add("rotated")
+            }
+        }
+
+    </script>
 </head>
 <body>
 
@@ -21,46 +35,44 @@
                 </span>
             </li>
             <li class="SettingItem">
-                <a class="nav-link SettingLink" asp-area="" asp-controller="Settings" asp-action="General">
-                    <img style="width:10px;" src="~/img/svg/arrow.svg" />
+                <a href="#" id="SettingsLabel1" onclick="showhide(this.id)" class="nav-link SettingLink">
+                    <img class="arrow" src="~/img/svg/arrow.svg" />
                     <span>General</span>
                 </a>
+                <ul class="hidden">
+                    <li>
+                        testing
+                    </li>
+                </ul>
              </li>
-             <li class="SettingItem">
-                 <a class="nav-link SettingLink" asp-area="" asp-controller="Settings" asp-action="Appearance">
-                    <img style="width:10px;" src="~/img/svg/arrow.svg" />
-                    <span>
-                        Appearance
-                    </span>
-                 </a>
-             </li>
+             
             <li class="SettingItem">
-                <a class="nav-link SettingLink" asp-area="" asp-controller="Settings" asp-action="Appearance">
-                    <img style="width:10px;" src="~/img/svg/arrow.svg" />
+                <a href="#e" id="SettingsLabel2" onclick="showhide(this.id)" class="nav-link SettingLink">
+                    <img class="arrow" src="~/img/svg/arrow.svg" />
                     <span>
                         Appearance
                     </span>
                 </a>
             </li>
             <li class="SettingItem">
-                <a class="nav-link SettingLink" asp-area="" asp-controller="Settings" asp-action="Accessibility">
-                    <img style="width:10px;" src="~/img/svg/arrow.svg" />
+                <a href="#" id="SettingsLabel3" onclick="showhide(this.id)" class="nav-link SettingLink">
+                    <img class="arrow" src="~/img/svg/arrow.svg" />
                     <span>
                         Accessibility
                     </span>
                 </a>
             </li>
             <li class="SettingItem">
-                <a class="nav-link SettingLink" asp-area="" asp-controller="Settings" asp-action="Privacy">
-                    <img style="width:10px;" src="~/img/svg/arrow.svg" />
+                <a href="#" id="SettingsLabel4" onclick="showhide(this.id)" class="nav-link SettingLink">
+                    <img class="arrow" src="~/img/svg/arrow.svg" />
                     <span>
                         Privacy and Security
                     </span>
                 </a>
             </li>
             <li class="SettingItem">
-                <a class="nav-link SettingLink" asp-area="" asp-controller="Settings" asp-action="Payment">
-                    <img style="width:10px;" src="~/img/svg/arrow.svg" />
+                <a href="#" id="SettingsLabel5" onclick="showhide(this.id)" class="nav-link SettingLink">
+                    <img class="arrow" src="~/img/svg/arrow.svg" />
                     <span>
                         Payment Methods
                     </span>
@@ -72,6 +84,11 @@
         </div>
         
     </div>
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
 
