@@ -1,5 +1,5 @@
 ﻿body {
-    background-color:mediumpurple
+    background-color:mediumpurple /*sets the background colour of website*/
 }
 
 
@@ -8,5 +8,27 @@
     color:red;
     font-family:Rockwell;
     font-size: 150px;
-    transform: translateX(280px) translateY(-57px) translate(100px, -20px);
+    transform: translateX(280px) translateY(-5px) translate(100px, -20px);
+}
+
+.Waffle {
+    position:fixed;
+    color:greenyellow; /* text colour*/
+    font-family: Rockwell; /* sets the text font*/
+    font-size: 18px; /* sets the text size*/
+    transform: translateX(280px) translateY(-5px) translate(-300px, 00px); /*sets the text position*/
+}
+
+.flexbox {
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap
+}
+
+.Wuffle {
+    position: fixed;
+    color: greenyellow; /* text colour*/
+    font-family: Rockwell; /* sets the text font*/
+    font-size: 18px; /* sets the text size*/
+    transform: translateX(280px) translateY(-5px) translate(-300px, 20px); /*sets the text position*/
 }
