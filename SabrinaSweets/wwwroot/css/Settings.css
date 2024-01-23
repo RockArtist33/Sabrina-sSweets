@@ -7,6 +7,8 @@ body {
 .flexbox {
     display: flex;
     flex-direction: row;
+    border:none;
+    
 }
 
 .SettingList {
@@ -19,11 +21,13 @@ body {
     width: 20vw; /* adjuts width and or length of the actual box */
     height: 100vh; /* adjusts height and or how long the actual box is */
     background-color: white; /* background colour of the actual box */
+    border-right: 1px solid rgb(220,220,220);
 }
 
 
 .SettingTitle {
     display: block;
+
     width: inherit;
     text-align: center;
     padding-top:10px;
@@ -34,11 +38,11 @@ body {
 }
 
 .SettingItem {
-    display: block;
+    display: flex;
     width: inherit;
-    padding-left:20px;
+    flex-direction: row;
+    padding-left: 20px;
     text-align: left;
-    
 }
 
 .SettingLink {

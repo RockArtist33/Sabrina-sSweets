@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\fonts\Roboto\" />
-    <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
 </Project>

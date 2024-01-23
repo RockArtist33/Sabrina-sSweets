@@ -22,13 +22,50 @@
             </li>
             <li class="SettingItem">
                 <a class="nav-link SettingLink" asp-area="" asp-controller="Settings" asp-action="General">
-                    General
+                    <img style="width:10px;" src="~/img/svg/arrow.svg" />
+                    <span>General</span>
                 </a>
              </li>
-            <li class="SettingItem"><a class="nav-link SettingLink" asp-area="" asp-controller="Settings" asp-action="Appearance">Appearance</a></li>
-            <li class="SettingItem"><a class="nav-link SettingLink" asp-area="" asp-controller="Settings" asp-action="Accessibility">Accessibility</a></li>
-            <li class="SettingItem"><a class="nav-link SettingLink" asp-area="" asp-controller="Settings" asp-action="Privacy">Privacy and Security</a></li>
-            <li class="SettingItem"><a class="nav-link SettingLink" asp-area="" asp-controller="Settings" asp-action="Payment">Payment Methods</a></li>
+             <li class="SettingItem">
+                 <a class="nav-link SettingLink" asp-area="" asp-controller="Settings" asp-action="Appearance">
+                    <img style="width:10px;" src="~/img/svg/arrow.svg" />
+                    <span>
+                        Appearance
+                    </span>
+                 </a>
+             </li>
+            <li class="SettingItem">
+                <a class="nav-link SettingLink" asp-area="" asp-controller="Settings" asp-action="Appearance">
+                    <img style="width:10px;" src="~/img/svg/arrow.svg" />
+                    <span>
+                        Appearance
+                    </span>
+                </a>
+            </li>
+            <li class="SettingItem">
+                <a class="nav-link SettingLink" asp-area="" asp-controller="Settings" asp-action="Accessibility">
+                    <img style="width:10px;" src="~/img/svg/arrow.svg" />
+                    <span>
+                        Accessibility
+                    </span>
+                </a>
+            </li>
+            <li class="SettingItem">
+                <a class="nav-link SettingLink" asp-area="" asp-controller="Settings" asp-action="Privacy">
+                    <img style="width:10px;" src="~/img/svg/arrow.svg" />
+                    <span>
+                        Privacy and Security
+                    </span>
+                </a>
+            </li>
+            <li class="SettingItem">
+                <a class="nav-link SettingLink" asp-area="" asp-controller="Settings" asp-action="Payment">
+                    <img style="width:10px;" src="~/img/svg/arrow.svg" />
+                    <span>
+                        Payment Methods
+                    </span>
+                </a>
+            </li>
         </ul>
         <div style="position:absolute;left:400px">
             @RenderBody()
