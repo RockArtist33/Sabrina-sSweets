@@ -1,0 +1,12 @@
+﻿body {
+    background-color:mediumpurple
+}
+
+
+.Vent {
+    position:fixed;
+    color:red;
+    font-family:Rockwell;
+    font-size: 150px;
+    transform: translateX(280px) translateY(-57px) translate(100px, -20px);
+}
