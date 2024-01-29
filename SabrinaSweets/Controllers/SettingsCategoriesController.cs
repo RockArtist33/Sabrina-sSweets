@@ -10,87 +10,87 @@ using SabrinaSweets.Models;
 
 namespace SabrinaSweets.Controllers
 {
-    public class UserSettingsController : Controller
+    public class SettingsCategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public UserSettingsController(ApplicationDbContext context)
+        public SettingsCategoriesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: UserSettings
+        // GET: SettingsCategories
         public async Task<IActionResult> Index()
         {
-              return _context.UserSettings != null ? 
-                          View(await _context.UserSettings.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.UserSettings'  is null.");
+              return _context.SettingsCategory != null ? 
+                          View(await _context.SettingsCategory.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.SettingsCategory'  is null.");
         }
 
-        // GET: UserSettings/Details/5
+        // GET: SettingsCategories/Details/5
         public async Task<IActionResult> Details(int id)
         {
-            if (id == null || _context.UserSettings == null)
+            if (id == null || _context.SettingsCategory == null)
             {
                 return NotFound();
             }
 
-            var userSettings = await _context.UserSettings
+            var settingsCategory = await _context.SettingsCategory
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (userSettings == null)
+            if (settingsCategory == null)
             {
                 return NotFound();
             }
 
-            return View(userSettings);
+            return View(settingsCategory);
         }
 
-        // GET: UserSettings/Create
+        // GET: SettingsCategories/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: UserSettings/Create
+        // POST: SettingsCategories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserId,SettingId,Value")] UserSettings userSettings)
+        public async Task<IActionResult> Create([Bind("Id,Setting_Id,CategoryId")] SettingsCategory settingsCategory)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(userSettings);
+                _context.Add(settingsCategory);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(userSettings);
+            return View(settingsCategory);
         }
 
-        // GET: UserSettings/Edit/5
+        // GET: SettingsCategories/Edit/5
         public async Task<IActionResult> Edit(int id)
         {
-            if (id == null || _context.UserSettings == null)
+            if (id == null || _context.SettingsCategory == null)
             {
                 return NotFound();
             }
 
-            var userSettings = await _context.UserSettings.FindAsync(id);
-            if (userSettings == null)
+            var settingsCategory = await _context.SettingsCategory.FindAsync(id);
+            if (settingsCategory == null)
             {
                 return NotFound();
             }
-            return View(userSettings);
+            return View(settingsCategory);
         }
 
-        // POST: UserSettings/Edit/5
+        // POST: SettingsCategories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UserId,SettingId,Value")] UserSettings userSettings)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Setting_Id,CategoryId")] SettingsCategory settingsCategory)
         {
-            if (id != userSettings.Id)
+            if (id != settingsCategory.Id)
             {
                 return NotFound();
             }
@@ -99,12 +99,12 @@ namespace SabrinaSweets.Controllers
             {
                 try
                 {
-                    _context.Update(userSettings);
+                    _context.Update(settingsCategory);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserSettingsExists(userSettings.Id))
+                    if (!SettingsCategoryExists(settingsCategory.Id))
                     {
                         return NotFound();
                     }
@@ -115,49 +115,49 @@ namespace SabrinaSweets.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(userSettings);
+            return View(settingsCategory);
         }
 
-        // GET: UserSettings/Delete/5
+        // GET: SettingsCategories/Delete/5
         public async Task<IActionResult> Delete(int id)
         {
-            if (id == null || _context.UserSettings == null)
+            if (id == null || _context.SettingsCategory == null)
             {
                 return NotFound();
             }
 
-            var userSettings = await _context.UserSettings
+            var settingsCategory = await _context.SettingsCategory
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (userSettings == null)
+            if (settingsCategory == null)
             {
                 return NotFound();
             }
 
-            return View(userSettings);
+            return View(settingsCategory);
         }
 
-        // POST: UserSettings/Delete/5
+        // POST: SettingsCategories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.UserSettings == null)
+            if (_context.SettingsCategory == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.UserSettings'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.SettingsCategory'  is null.");
             }
-            var userSettings = await _context.UserSettings.FindAsync(id);
-            if (userSettings != null)
+            var settingsCategory = await _context.SettingsCategory.FindAsync(id);
+            if (settingsCategory != null)
             {
-                _context.UserSettings.Remove(userSettings);
+                _context.SettingsCategory.Remove(settingsCategory);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UserSettingsExists(int id)
+        private bool SettingsCategoryExists(int id)
         {
-          return (_context.UserSettings?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.SettingsCategory?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

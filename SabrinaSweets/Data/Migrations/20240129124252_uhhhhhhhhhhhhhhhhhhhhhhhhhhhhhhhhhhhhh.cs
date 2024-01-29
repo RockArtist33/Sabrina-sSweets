@@ -5,8 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SabrinaSweets.Data.Migrations
 {
-    public partial class Settings : Migration
+    /// <inheritdoc />
+    public partial class uhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -49,11 +51,25 @@ namespace SabrinaSweets.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Category",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Category", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Setting",
                 columns: table => new
                 {
-                    SettingId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CategoryId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SettingId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -64,10 +80,25 @@ namespace SabrinaSweets.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SettingsCategory",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Setting_Id = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CategoryId = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SettingsCategory", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserSettings",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SettingId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -223,6 +254,7 @@ namespace SabrinaSweets.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
@@ -241,7 +273,13 @@ namespace SabrinaSweets.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Category");
+
+            migrationBuilder.DropTable(
                 name: "Setting");
+
+            migrationBuilder.DropTable(
+                name: "SettingsCategory");
 
             migrationBuilder.DropTable(
                 name: "UserSettings");
