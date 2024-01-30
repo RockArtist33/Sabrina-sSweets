@@ -1,26 +1,34 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model SabrinaSweets.Models.ViewModels.ViewModelSettings
+
 @{
-    ViewBag["Title"] = "Settings";
 }
 
 
 <!DOCTYPE html>
 <html>
 <head>
+    <title>@ViewData["Title"] - Settings</title>
     <link rel="stylesheet" href="~/css/Settings.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <script>
         function showhide(id) {
             menu = document.getElementById(id);
             arrow = document.getElementById(id).childNodes.item(1);
-            console.log(menu.childNodes)
+            arrowList = document.getElementById(id+"List");
+            console.log(arrowList);
+            console.log(menu.childNodes);
             
             if (arrow.classList.contains("rotated")) {
-                arrow.classList.remove("rotated")
+                arrow.classList.remove("rotated");
+                arrowList.classList.add("hidden");
+                
+                
             } else {
-                arrow.classList.add("rotated")
+                arrow.classList.add("rotated");
+                arrowList.classList.remove("hidden");
             }
         }
 
@@ -35,50 +43,24 @@
                     Settings
                 </span>
             </li>
-            <li class="SettingItem">
-                <a href="#" id="SettingsLabel1" onclick="showhide(this.id)" class="nav-link SettingLink">
-                    <img class="arrow" src="~/img/svg/arrow.svg" />
-                    <span>General</span>
-                </a>
-                <ul class="hidden">
-                    <li>
-                        testing
-                    </li>
-                </ul>
-             </li>
-             
-            <li class="SettingItem">
-                <a href="#e" id="SettingsLabel2" onclick="showhide(this.id)" class="nav-link SettingLink">
-                    <img class="arrow" src="~/img/svg/arrow.svg" />
-                    <span>
-                        Appearance
-                    </span>
-                </a>
-            </li>
-            <li class="SettingItem">
-                <a href="#" id="SettingsLabel3" onclick="showhide(this.id)" class="nav-link SettingLink">
-                    <img class="arrow" src="~/img/svg/arrow.svg" />
-                    <span>
-                        Accessibility
-                    </span>
-                </a>
-            </li>
-            <li class="SettingItem">
-                <a href="#" id="SettingsLabel4" onclick="showhide(this.id)" class="nav-link SettingLink">
-                    <img class="arrow" src="~/img/svg/arrow.svg" />
-                    <span>
-                        Privacy and Security
-                    </span>
-                </a>
-            </li>
-            <li class="SettingItem">
-                <a href="#" id="SettingsLabel5" onclick="showhide(this.id)" class="nav-link SettingLink">
-                    <img class="arrow" src="~/img/svg/arrow.svg" />
-                    <span>
-                        Payment Methods
-                    </span>
-                </a>
-            </li>
+            @foreach (var item in Model.EnumCategories) {
+                <li class="SettingItem">
+                    <a href="#" id=@Html.DisplayFor(modelItem => item.Id) onclick="showhide(this.id)" class="nav-link SettingLink">
+                        <img class="arrow" src="~/img/svg/arrow.svg" />
+                        <span>@Html.DisplayFor(modelItem => item.Name)</span>
+                    </a>
+                    <ul id="@Html.DisplayFor(modelItem => item.Id)List" class="SettingitemList hidden">
+                        @foreach (var Settingitem in Model.EnumSettings) {
+                            if (Model.EnumSetCat.Any(i => (i.Setting_Id == Settingitem.SettingId) && (i.CategoryId == item.Id) )){
+                                <li class="SettingitemlistItem">
+                                    <a class="SettingitemlistitemText">@Html.DisplayFor(l => Settingitem.Name)</a>
+                                </li>
+
+                            }
+                        }
+                    </ul>
+                 </li>
+            }
         </ul>
         <div style="position:absolute;left:400px">
             @RenderBody()
