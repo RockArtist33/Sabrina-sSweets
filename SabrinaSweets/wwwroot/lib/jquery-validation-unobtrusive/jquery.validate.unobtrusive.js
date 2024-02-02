@@ -102,7 +102,7 @@
         if ($form.data(key)) {
             return;
         }
-        // Set a flag that indicates we're currently resetting the form.
+        // Set a flag that indicates we're currently reSettings the form.
         $form.data(key, true);
         try {
             $form.data("validator").resetForm();

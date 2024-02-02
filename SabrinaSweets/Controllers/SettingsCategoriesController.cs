@@ -35,14 +35,14 @@ namespace SabrinaSweets.Controllers
                 return NotFound();
             }
 
-            var settingsCategory = await _context.SettingsCategory
+            var SettingsCategory = await _context.SettingsCategory
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (settingsCategory == null)
+            if (SettingsCategory == null)
             {
                 return NotFound();
             }
 
-            return View(settingsCategory);
+            return View(SettingsCategory);
         }
 
         // GET: SettingsCategories/Create
@@ -56,15 +56,15 @@ namespace SabrinaSweets.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Setting_Id,CategoryId")] SettingsCategory settingsCategory)
+        public async Task<IActionResult> Create([Bind("Id,Settings_Id,CategoryId")] SettingsCategory SettingsCategory)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(settingsCategory);
+                _context.Add(SettingsCategory);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(settingsCategory);
+            return View(SettingsCategory);
         }
 
         // GET: SettingsCategories/Edit/5
@@ -75,12 +75,12 @@ namespace SabrinaSweets.Controllers
                 return NotFound();
             }
 
-            var settingsCategory = await _context.SettingsCategory.FindAsync(id);
-            if (settingsCategory == null)
+            var SettingsCategory = await _context.SettingsCategory.FindAsync(id);
+            if (SettingsCategory == null)
             {
                 return NotFound();
             }
-            return View(settingsCategory);
+            return View(SettingsCategory);
         }
 
         // POST: SettingsCategories/Edit/5
@@ -88,9 +88,9 @@ namespace SabrinaSweets.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Setting_Id,CategoryId")] SettingsCategory settingsCategory)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Settings_Id,CategoryId")] SettingsCategory SettingsCategory)
         {
-            if (id != settingsCategory.Id)
+            if (id != SettingsCategory.Id)
             {
                 return NotFound();
             }
@@ -99,12 +99,12 @@ namespace SabrinaSweets.Controllers
             {
                 try
                 {
-                    _context.Update(settingsCategory);
+                    _context.Update(SettingsCategory);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SettingsCategoryExists(settingsCategory.Id))
+                    if (!SettingsCategoryExists(SettingsCategory.Id))
                     {
                         return NotFound();
                     }
@@ -115,7 +115,7 @@ namespace SabrinaSweets.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(settingsCategory);
+            return View(SettingsCategory);
         }
 
         // GET: SettingsCategories/Delete/5
@@ -126,14 +126,14 @@ namespace SabrinaSweets.Controllers
                 return NotFound();
             }
 
-            var settingsCategory = await _context.SettingsCategory
+            var SettingsCategory = await _context.SettingsCategory
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (settingsCategory == null)
+            if (SettingsCategory == null)
             {
                 return NotFound();
             }
 
-            return View(settingsCategory);
+            return View(SettingsCategory);
         }
 
         // POST: SettingsCategories/Delete/5
@@ -145,10 +145,10 @@ namespace SabrinaSweets.Controllers
             {
                 return Problem("Entity set 'ApplicationDbContext.SettingsCategory'  is null.");
             }
-            var settingsCategory = await _context.SettingsCategory.FindAsync(id);
-            if (settingsCategory != null)
+            var SettingsCategory = await _context.SettingsCategory.FindAsync(id);
+            if (SettingsCategory != null)
             {
-                _context.SettingsCategory.Remove(settingsCategory);
+                _context.SettingsCategory.Remove(SettingsCategory);
             }
             
             await _context.SaveChangesAsync();

@@ -56,7 +56,7 @@ namespace SabrinaSweets.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserId,SettingId,Value")] UserSettings userSettings)
+        public async Task<IActionResult> Create([Bind("Id,UserId,SettingsId,Value")] UserSettings userSettings)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace SabrinaSweets.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UserId,SettingId,Value")] UserSettings userSettings)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,UserId,SettingsId,Value")] UserSettings userSettings)
         {
             if (id != userSettings.Id)
             {

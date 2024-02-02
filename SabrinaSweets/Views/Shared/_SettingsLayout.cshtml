@@ -37,28 +37,52 @@
 <body>
 
     <div class="flexbox"> 
-        <ul class="SettingList">
-            <li class="SettingTitle">
+        <ul class="SettingsList">
+            <li class="SettingsTitle">
                 <span style=";text-align:center;font-size:24px;font-family: 'Roboto'">
                     Settings
                 </span>
             </li>
             @foreach (var item in Model.EnumCategories) {
-                <li class="SettingItem">
-                    <a href="#" id=@Html.DisplayFor(modelItem => item.Id) onclick="showhide(this.id)" class="nav-link SettingLink">
-                        <img class="arrow" src="~/img/svg/arrow.svg" />
-                        <span>@Html.DisplayFor(modelItem => item.Name)</span>
-                    </a>
-                    <ul id="@Html.DisplayFor(modelItem => item.Id)List" class="SettingitemList hidden">
-                        @foreach (var Settingitem in Model.EnumSettings) {
-                            if (Model.EnumSetCat.Any(i => (i.Setting_Id == Settingitem.SettingId) && (i.CategoryId == item.Id) )){
-                                <li class="SettingitemlistItem">
-                                    <a class="SettingitemlistitemText">@Html.DisplayFor(l => Settingitem.Name)</a>
-                                </li>
+                <li class="SettingsItem">
+                    @if (ViewBag.Active == item.Id)
+                    {
+                        <a href="?id=@Html.DisplayFor(modelItem => item.Id)" id=@Html.DisplayFor(modelItem => item.Id) onclick="showhide(this.id)" class="nav-link SettingsLink">
+                            <img class="arrow rotated" src="~/img/svg/arrow.svg" />
+                            <span>@Html.DisplayFor(modelItem => item.Name)</span>
+                        </a>
+                        <ul id="@Html.DisplayFor(modelItem => item.Id)List" class="SettingsitemList">
+                            @foreach (var Settingsitem in Model.EnumSettings)
+                            {
+                                if (Model.EnumSetCat.Any(i => (i.Settings_Id == Settingsitem.CreatedSettingsId) && (i.CategoryId == item.Id)))
+                                {
+                                    <li class="SettingsitemlistItem">
+                                        <a id="Settings-@Html.DisplayFor(modelItem => Settingsitem.CreatedSettingsId)" href="?id=@Html.DisplayFor(modelItem => item.Id)#Settings-@Html.DisplayFor(modelItem => Settingsitem.CreatedSettingsId)" class="SettingsitemlistitemText"><span>@Html.DisplayFor(l => Settingsitem.Name)</span></a>
+                                    </li>
 
+                                }
                             }
-                        }
-                    </ul>
+                        </ul>
+                    }
+                    else
+                    {
+                        <a href="?id=@Html.DisplayFor(modelItem => item.Id)" id=@Html.DisplayFor(modelItem => item.Id) onclick="showhide(this.id)" class="nav-link SettingsLink">
+                            <img class="arrow" src="~/img/svg/arrow.svg" />
+                            <span>@Html.DisplayFor(modelItem => item.Name)</span>
+                        </a>
+                        <ul id="@Html.DisplayFor(modelItem => item.Id)List" class="SettingsitemList hidden">
+                            @foreach (var Settingsitem in Model.EnumSettings)
+                            {
+                                if (Model.EnumSetCat.Any(i => (i.Settings_Id == Settingsitem.CreatedSettingsId) && (i.CategoryId == item.Id)))
+                                {
+                                    <li class="SettingsitemlistItem">
+                                        <a href="?id=@Html.DisplayFor(modelItem => item.Id)#@Html.DisplayFor(modelItem => Settingsitem.CreatedSettingsId)" class="SettingsitemlistitemText"><span>@Html.DisplayFor(l => Settingsitem.Name)</span></a>
+                                    </li>
+
+                                }
+                            }
+                        </ul>
+                    }
                  </li>
             }
         </ul>

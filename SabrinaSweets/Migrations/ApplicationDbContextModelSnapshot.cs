@@ -3,20 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SabrinaSweets.Data;
 
 #nullable disable
 
-namespace SabrinaSweets.Data.Migrations
+namespace SabrinaSweets.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240129124252_uhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")]
-    partial class uhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -238,6 +235,9 @@ namespace SabrinaSweets.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool?>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -247,13 +247,13 @@ namespace SabrinaSweets.Data.Migrations
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("SabrinaSweets.Models.Setting", b =>
+            modelBuilder.Entity("SabrinaSweets.Models.CreatedSettings", b =>
                 {
-                    b.Property<int>("SettingId")
+                    b.Property<int>("CreatedSettingsId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SettingId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CreatedSettingsId"));
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -262,13 +262,17 @@ namespace SabrinaSweets.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Options")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("SettingId");
+                    b.HasKey("CreatedSettingsId");
 
-                    b.ToTable("Setting");
+                    b.ToTable("CreatedSettings");
                 });
 
             modelBuilder.Entity("SabrinaSweets.Models.SettingsCategory", b =>
@@ -279,13 +283,11 @@ namespace SabrinaSweets.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CategoryId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Setting_Id")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Settings_Id")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -300,7 +302,7 @@ namespace SabrinaSweets.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("SettingId")
+                    b.Property<string>("SettingsId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

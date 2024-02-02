@@ -13,7 +13,7 @@ body {
 
 
 
-.SettingList {
+.SettingsList {
     position: absolute;
     left: 0px;
     top: 0px;
@@ -27,7 +27,7 @@ body {
 }
 
 
-.SettingTitle {
+.SettingsTitle {
     display: block;
     width: inherit;
     text-align: center;
@@ -38,7 +38,7 @@ body {
     border-bottom:1px solid rgb(227,227,227);
 }
 
-.SettingItem {
+.SettingsItem {
     display: flex;
     width: inherit;
     flex-direction: column;
@@ -46,36 +46,36 @@ body {
     text-align: left;
 }
 
-.SettingitemList {
+.SettingsitemList {
     display: flex;
     flex-direction: column;
     list-style: none;
 }
 
-.SettingitemlistItem {
+.SettingsitemlistItem {
     display: flex;
     flex-direction: column;
     padding: 2px;
     border-radius:15px;
 }
 
-.SettingitemlistItem:hover {
+.SettingsitemlistItem:hover {
     color: black;
     background-color:rgb(227, 227, 227);
     
 }
 
-.SettingitemlistitemText {
+.SettingsitemlistitemText {
     padding-left: 10px;
     text-decoration: none;
     color:black;
 }
-.SettingitemlistitemText:hover {
+.SettingsitemlistitemText:hover {
     text-decoration: none;
     color:black;
 }
 
-.SettingLink {
+.SettingsLink {
     color: black; /* colour of the text */
     text-decoration: none;
     font-family: 'Roboto' sans-serif; /* text font */
@@ -85,7 +85,7 @@ body {
 }
 
     /* change the link color on hover */
-.SettingLink:hover {
+.SettingsLink:hover {
     color: black;
     background-color: rgb(220,220,220);
     
