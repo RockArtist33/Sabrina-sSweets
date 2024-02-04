@@ -14,5 +14,6 @@ namespace SabrinaSweets.Data
         public DbSet<SabrinaSweets.Models.UserSettings>? UserSettings { get; set; }
         public DbSet<SabrinaSweets.Models.Category>? Category { get; set; }
         public DbSet<SabrinaSweets.Models.SettingsCategory>? SettingsCategory { get; set; }
+        public DbSet<SabrinaSweets.Models.ShoppingItem>? ShoppingItems { get; set; }
     }
 }

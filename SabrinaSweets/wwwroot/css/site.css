@@ -40,5 +40,24 @@ body {
 .SearchBar .NavbarSearch {
     height:50px;
     margin:auto;
-    border:
+}
+
+.center {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.left {
+  transform: rotate(180deg);
+}
+
+.ScrollingImages {
+  display:flex;
+  flex-direction:row;
+  background-color: black;
+  width:100%;
+  height:500px;
+  border:none;
+  box-shadow: 0px 5px 10px rgb(105, 105, 105);
 }
