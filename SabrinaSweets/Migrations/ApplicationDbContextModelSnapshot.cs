@@ -17,7 +17,7 @@ namespace SabrinaSweets.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.11")
+                .HasAnnotation("ProductVersion", "7.0.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -294,6 +294,27 @@ namespace SabrinaSweets.Migrations
                     b.ToTable("SettingsCategory");
                 });
 
+            modelBuilder.Entity("SabrinaSweets.Models.ShoppingCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ShoppingCategory");
+                });
+
             modelBuilder.Entity("SabrinaSweets.Models.ShoppingItem", b =>
                 {
                     b.Property<int>("ShoppingItemId")
@@ -309,6 +330,10 @@ namespace SabrinaSweets.Migrations
                     b.Property<string>("Dietary")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Ingredients")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -322,6 +347,10 @@ namespace SabrinaSweets.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Size")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SmallDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

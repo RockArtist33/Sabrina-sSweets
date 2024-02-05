@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SabrinaSweets.Migrations
 {
     /// <inheritdoc />
-    public partial class Fixed : Migration
+    public partial class Redone : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -93,6 +93,42 @@ namespace SabrinaSweets.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SettingsCategory", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ShoppingCategory",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ShoppingCategory", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ShoppingItems",
+                columns: table => new
+                {
+                    ShoppingItemId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SmallDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Size = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    price = table.Column<float>(type: "real", nullable: false),
+                    TagId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Ingredients = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Nutritional_Values = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Dietary = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ShoppingItems", x => x.ShoppingItemId);
                 });
 
             migrationBuilder.CreateTable(
@@ -282,6 +318,12 @@ namespace SabrinaSweets.Migrations
 
             migrationBuilder.DropTable(
                 name: "SettingsCategory");
+
+            migrationBuilder.DropTable(
+                name: "ShoppingCategory");
+
+            migrationBuilder.DropTable(
+                name: "ShoppingItems");
 
             migrationBuilder.DropTable(
                 name: "UserSettings");

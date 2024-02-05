@@ -17,6 +17,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 
 builder.Services.AddControllersWithViews();
 
+/*
     builder.Services.AddAuthentication()
        .AddGoogle(options =>
        {
@@ -25,6 +26,7 @@ builder.Services.AddControllersWithViews();
            options.ClientId = googleAuthNSection["ClientId"];
            options.ClientSecret = googleAuthNSection["ClientSecret"];
        });
+*/
 
 var app = builder.Build();
 

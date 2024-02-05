@@ -1,0 +1,30 @@
+.ItemWrapper {
+    display:flex;
+    flex-direction:row;
+}
+.Imagebox {
+    margin:20px;
+}
+.Imagebox img {
+    border:2px solid rgb(220, 220, 220);
+    padding:30px;
+    width:600px;
+}
+
+.TextWrapper {
+    display:flex;
+    flex-direction:column;
+   overflow-wrap:break-word;
+}
+
+.ItemHeader {
+    font-size:60px;
+    color:rgb(255, 50, 0);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.SmallDescription {
+    width:400px;
+    height:400px;
+    overflow-wrap:break-word;
+}
