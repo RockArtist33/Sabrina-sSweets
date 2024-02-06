@@ -1,12 +1,25 @@
-﻿@{
+﻿@model SabrinaSweets.Models.ViewModels.ViewModelSettings
+
+@{
     Layout = "_SettingsLayout";
+    ViewData["Title"] = ViewBag.CategoryName;
 }
 
 <div class="SettingsBody">
-    <ul class="SettingsBodyItemList">
-        <li class="SettingsBodyItem d-flex flex-row justify-content-between">
-
-            <input class="" type="checkbox"/>
-        </li>
-    </ul>
+    @foreach (var item in Model.EnumSettings)
+    {
+        <div>
+            <div>
+                <form asp-action="SettingsUpdate">
+                    <span>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </span>
+                    @if (item.Type == "checkbox")
+                    {
+                        <input asp-for="userSettings.Value" type="checkbox"></input>
+                    }
+                </form>
+            </div>
+        </div>
+    }
 </div>

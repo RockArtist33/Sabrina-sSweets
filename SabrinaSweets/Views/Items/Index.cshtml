@@ -1,0 +1,22 @@
+﻿@model SabrinaSweets.Models.ShoppingItem
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="~/css/Items.css" />
+<div class="container">
+    <div class="ItemWrapper">
+        <div class="Imagebox">
+            <img src="@Html.DisplayFor(modelitem => modelitem.Image)" />
+        </div>
+        <div class="ButtonTextWrapper">
+            <div class="TextWrapper">
+                <span class="ItemHeader">@Html.DisplayFor(modelitem => modelitem.Name)</span>
+                <span class="ItemIdText">Product ID: @Html.DisplayFor(modelitem => modelitem.ShoppingItemId)</span>
+                <span class="SmallDescription">@Html.DisplayFor(modelitem => modelitem.SmallDescription)</span>
+            </div>
+            <a>Order Now</a>
+        </div>
+    </div>
+    
+</div>
