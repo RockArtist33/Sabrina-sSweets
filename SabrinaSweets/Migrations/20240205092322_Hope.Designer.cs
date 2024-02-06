@@ -12,15 +12,15 @@ using SabrinaSweets.Data;
 namespace SabrinaSweets.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240205000602_Redone")]
-    partial class Redone
+    [Migration("20240205092322_Hope")]
+    partial class Hope
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.15")
+                .HasAnnotation("ProductVersion", "7.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

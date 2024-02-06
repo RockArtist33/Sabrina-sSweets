@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SabrinaSweets.Migrations
 {
     /// <inheritdoc />
-    public partial class Redone : Migration
+    public partial class Hope : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
